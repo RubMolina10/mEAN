@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <!-- <h2>Registro</h2> -->
+        <form #employeeform="ngForm" (ngSubmit)="addEmploye(employeeform)">
+            <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="nNum_Emp"
+              placeholder="Numero de empleado"
+              [(ngModel)]="employeeService.selectEmployee.nNum_Emp"
+            />
+          </div>
+          <div class="form-group">
+            <input
+            type="text"
+            class="form-control"
+            name="sNombres"
+            placeholder="Nombre de empleado"
+              [(ngModel)]="employeeService.selectEmployee.sNombres"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="sAppellidos"
+              placeholder="Apellido de empleado"
+              [(ngModel)]="employeeService.selectEmployee.sAppellidos"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="sPuesto"
+              placeholder="Puesto de empleado"
+              [(ngModel)]="employeeService.selectEmployee.sPuesto"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="nSalario"
+              placeholder="Salario de empleado"
+              [(ngModel)]="employeeService.selectEmployee.nSalario"
+            />
+          </div>
+           <div class="">
+            <button class="btn btn-primary mr-2">
+                Limpiar
+             </button>
+             <button class="btn btn-secondary">
+               Guardar
+            </button>
+           </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>No.Empleado</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Puesto</th>
+          <th>Salario</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeService.employees">
+          <td>{{ employee.nNum_Emp }}</td>
+          <td>{{ employee.sNombres }}</td>
+          <td>{{ employee.sAppellidos }}</td>
+          <td>{{ employee.sPuesto }}</td>
+          <td>{{ employee.nSalario }}</td>
+          <td>
+            <button class="btn btn-secondary btn-sm">
+              <i class="material-icons">edit</i>
+            </button>
+            <button class="btn btn-danger btn-sm">
+              <i class="material-icons">delete</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
